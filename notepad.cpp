@@ -79,7 +79,7 @@ void NotePad::NewDocument()
 void NotePad::Open()
 {
     // getOpenFileName opens the open file window. We store the selected file's compete path in FileName
-    QString FileName = QFileDialog::getOpenFileName(this,"Open the file","D:/","Text File (*txt)");
+    QString FileName = QFileDialog::getOpenFileName(this,"Open the file","D:/","Text File (*.txt)");
 
     // define a QFile object with Filename
     QFile MyFile(FileName);
@@ -114,7 +114,7 @@ void NotePad::Save()
     if(CurrentFile.isEmpty())
     {
         //similar to what we did in Open(). This opens a window to select save location and file name and stores the complete path in FileName
-        FileName = QFileDialog::getSaveFileName(this,"Save","D:/","text (*txt)");
+        FileName = QFileDialog::getSaveFileName(this,"Save","D:/","text (*.txt)");
         CurrentFile = FileName;
     }
     else
@@ -141,7 +141,7 @@ void NotePad::Save()
 void NotePad::SaveAs()
 {
     // this is not save as another file type. It's just save a text file to another path witha nother name without checking if its the CurrentFile
-    QString FileName = QFileDialog::getSaveFileName(this,"Save as","D:/","text (*txt)");
+    QString FileName = QFileDialog::getSaveFileName(this,"Save as","D:/","text (*.txt)");
     QFile MyFile(FileName);
 
     if(!MyFile.open(QFile::WriteOnly | QFile::Text))
